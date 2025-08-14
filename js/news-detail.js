@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('news-date').textContent = new Date(item.date).toLocaleDateString();
     document.getElementById('news-content').innerHTML = `
       ${item.image ? `<img src="${item.image}" alt="${item.title}" style="max-width:100%;margin-bottom:1rem;border-radius:8px;">` : ''}
-      <p>${item.description || item.content || ''}</p>
+      <p>${(item.description || item.content || '').replace(/\n/g, '<br>')}</p>
     `;
   } else {
     document.getElementById('news-title').textContent = "找不到這則消息";
